@@ -40,7 +40,7 @@ restarter({
 
 use signal to hot restart the server: `kill -PIPE 3132`
 
-checkout the [example](example)
+checkout the [example](example).
 
 ## License
 

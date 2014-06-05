@@ -10,7 +10,10 @@ app.listen(3000);
 console.log('app start listen at 3000');
 
 restarter({
-  servers: app,
+  disconnectHandle: function () {
+    // not neccesory here
+    // app.close();
+  },
   disconnectTime: 5000,
   exitTime: 10000
 });

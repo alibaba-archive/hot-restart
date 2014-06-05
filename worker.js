@@ -14,14 +14,10 @@ var debug = require('debug')('hot-restart:worker');
 var cluster = require('cluster');
 
 module.exports = function (options) {
-  var servers = options.servers || [];
+  var disconnectHandle = options.disconnectHandle || function () {};
   var exitCode = options.exitCode || 100;
   var disconnectTime = options.disconnectTime || 10000;
   var exitTime = options.exitTime || 20000;
-
-  if (!Array.isArray(servers)) {
-    servers = [ servers ];
-  }
 
   process.on('message', function (msg) {
     if (!msg || msg.action !== '__reload__') {
@@ -38,10 +34,7 @@ module.exports = function (options) {
       debug('cluster worker disconnect');
       cluster.worker.disconnect();
     }
-    servers.forEach(function (s) {
-      s.close();
-    });
-    debug('close all %s servers', servers.length);
+    disconnectHandle();
   }
 
   function exit() {
