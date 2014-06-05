@@ -1,6 +1,9 @@
 hot-restart
 ------------
 
+[![NPM version](https://badge.fury.io/js/hot-restart.svg)](http://badge.fury.io/js/hot-restart)
+[![Build Status](https://travis-ci.org/node-modules/hot-restart.svg?branch=master)](https://travis-ci.org/node-modules/hot-restart)
+
 hot restart a node server in cluster mode.
 
 ## Install
