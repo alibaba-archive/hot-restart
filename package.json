@@ -14,9 +14,12 @@
   "author": "dead_horse <dead_horse@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "debug": "1.0.0"
+    "debug": "~1.0.0"
   },
   "devDependencies": {
-
+    "autod": "^0.2.0",
+    "mocha": "^1.20.1",
+    "pedding": "~0.0.3",
+    "should": "^3.3.2"
   }
 }

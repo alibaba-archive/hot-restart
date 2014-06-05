@@ -15,9 +15,15 @@ var cluster = require('cluster');
 
 module.exports = function (options) {
   var disconnectHandle = options.disconnectHandle || function () {};
-  var exitCode = options.exitCode || 100;
-  var disconnectTime = options.disconnectTime || 10000;
-  var exitTime = options.exitTime || 20000;
+  var exitCode = options.exitCode == null
+    ? 100
+    : options.exitCode;
+  var disconnectTime = options.disconnectTime == null
+    ? 10000
+    : options.disconnectTime;
+  var exitTime = options.exitTime == null
+    ? 30000
+    : options.exitTime;
 
   process.on('message', function (msg) {
     if (!msg || msg.action !== '__reload__') {
