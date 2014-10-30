@@ -45,6 +45,17 @@ use signal to hot restart the server: `kill -PIPE 3132`
 
 checkout the [example](example).
 
+## Flow
+
+1. in master, `require('restarter')(opts)`, and add every worker to `restarter`.
+2. in workers, `require('restarter/worker')(opts)`, set disconnect options.
+3. `kill -PIPE 3132` to tell master restart.
+4. master will send restart message to all workers, then emit `restart` event,
+user need to start some new workers manually(also need to add these new works to restarter).
+5. old workers got restart message, will disconnect after `disconnectTime` and
+exit after `exitTme`.
+
+
 ## License
 
 MIT
