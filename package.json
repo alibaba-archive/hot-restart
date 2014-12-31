@@ -14,7 +14,8 @@
   "author": "dead_horse <dead_horse@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "debug": "~1.0.0"
+    "debug": "1",
+    "humanize-ms": "1"
   },
   "devDependencies": {
     "autod": "^0.2.0",

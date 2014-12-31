@@ -12,18 +12,19 @@
 
 var debug = require('debug')('hot-restart:worker');
 var cluster = require('cluster');
+var ms = require('humanize-ms');
 
 module.exports = function (options) {
   var disconnectHandle = options.disconnectHandle || function () {};
   var exitCode = options.exitCode == null
     ? 100
-    : options.exitCode;
+    : ms(options.exitCode);
   var disconnectTime = options.disconnectTime == null
     ? 10000
-    : options.disconnectTime;
+    : ms(options.disconnectTime);
   var exitTime = options.exitTime == null
     ? 30000
-    : options.exitTime;
+    : ms(options.exitTime);
 
   process.on('message', function (msg) {
     if (!msg || msg.action !== '__reload__') {

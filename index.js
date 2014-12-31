@@ -16,7 +16,7 @@ function Restarter() {
 
 util.inherits(Restarter, EventEmitter);
 
-Restarter.prototype.add = function (worker) {
+Restarter.prototype.add = function(worker) {
   var self = this;
   if (Array.isArray(worker)) {
     worker.forEach(function (w) {
