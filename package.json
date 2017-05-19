@@ -14,7 +14,7 @@
   "author": "dead_horse <dead_horse@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "debug": "2.6.7",
+    "debug": "^2.6.7",
     "humanize-ms": "1"
   },
   "devDependencies": {
